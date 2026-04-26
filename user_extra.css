@@ -1,0 +1,867 @@
+:root {
+  --sidebar-w: 260px;
+  --brand: #16a34a;
+  --brand-dark: #15803d;
+  --brand-deeper: #14532d;
+  --brand-light: #bbf7d0;
+}
+body {
+  font-family: "DM Sans", sans-serif;
+  background: #f8fafc;
+}
+
+/* ── Sidebar ── */
+.sf-sidebar {
+  width: var(--sidebar-w);
+  min-height: 100vh;
+  background: linear-gradient(170deg, #16a34a 0%, #15803d 55%, #14532d 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 14px 20px;
+  z-index: 1000;
+  box-shadow: 4px 0 28px rgba(0, 0, 0, 0.14);
+}
+.sf-logo {
+  font-family: "Playfair Display", serif;
+  font-size: 21px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.sf-logo span {
+  color: #bbf7d0;
+}
+.sf-logo-sub {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: #86efac;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.sf-nav-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #86efac;
+  text-transform: uppercase;
+  padding: 0 8px;
+  margin: 14px 0 5px;
+}
+
+.sf-nav-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: #d1fae5;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s;
+  text-align: left;
+  margin-bottom: 2px;
+}
+.sf-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.13);
+  color: #fff;
+}
+.sf-nav-btn.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+.sf-nav-btn .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fca5a5;
+  margin-left: auto;
+  animation: blink 1.4s infinite;
+}
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.sf-user-card {
+  background: rgba(255, 255, 255, 0.13);
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.sf-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #bbf7d0;
+  color: #14532d;
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.sf-uname {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #fff;
+}
+.sf-urole {
+  font-size: 11.5px;
+  color: #86efac;
+}
+
+/* ── Main ── */
+.sf-main {
+  margin-left: var(--sidebar-w);
+  padding: 36px 36px 60px;
+  min-height: 100vh;
+}
+.sf-page-title {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+.sf-page-sub {
+  color: #64748b;
+  font-size: 14px;
+  margin: 4px 0 26px;
+}
+
+/* ── Stat cards ── */
+.stat-pink {
+  background: linear-gradient(135deg, #fce7f3, #fdf2f8);
+  border-color: #f9a8d4 !important;
+}
+.stat-orange {
+  background: linear-gradient(135deg, #ffedd5, #fff7ed);
+  border-color: #fdba74 !important;
+}
+.stat-yellow {
+  background: linear-gradient(135deg, #fef9c3, #fefce8);
+  border-color: #fde047 !important;
+}
+.stat-val {
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 6px;
+}
+.stat-note {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+/* ── Election overview ── */
+.el-ov-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 5px;
+}
+.el-ov-clas {
+  border-color: #c7d2fe !important;
+  background: linear-gradient(135deg, #fafbff, #fff) !important;
+}
+.el-ov-clas .el-ov-title {
+  color: #6366f1;
+}
+
+/* ── Candidate card ── */
+.candidate-card {
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px 14px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.18s;
+  position: relative;
+  background: #fff;
+}
+.candidate-card:hover {
+  border-color: var(--brand);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(22, 163, 74, 0.12);
+}
+.candidate-card.selected {
+  border-color: var(--brand);
+  background: #f0fdf4;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
+}
+.clas-card.selected {
+  border-color: #6366f1;
+  background: #eef2ff;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+.checkmark {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--brand);
+  color: #fff;
+  font-size: 12px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+.candidate-card.selected .checkmark {
+  display: flex;
+}
+.clas-card.selected .checkmark {
+  background: #6366f1;
+}
+.candidate-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #bbf7d0, #4ade80);
+  color: #14532d;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+}
+.clas-card .candidate-avatar {
+  background: linear-gradient(135deg, #c7d2fe, #818cf8);
+  color: #3730a3;
+}
+.candidate-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+.candidate-party {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+/* ── Position header ── */
+.pos-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  border-left: 4px solid var(--brand);
+  padding-left: 12px;
+  margin-bottom: 16px;
+}
+.clas-pos-header {
+  border-left-color: #6366f1 !important;
+}
+
+/* ── Vote submit ── */
+.vote-submit-wrap {
+  text-align: center;
+  padding: 32px 0 8px;
+}
+
+/* ── Feedback ── */
+.star {
+  font-size: 28px;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: opacity 0.15s;
+}
+.ftag {
+  border: 1.5px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.ftag.active {
+  background: #f0fdf4;
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+/* ── Profile avatar lg ── */
+.profile-av {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #bbf7d0, #4ade80);
+  color: #14532d;
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Custom modals (JS-controlled with .active) ── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay.active {
+  display: flex;
+}
+.sf-modal {
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 32px 28px;
+  max-width: 390px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  z-index: 10000;
+}
+.sf-modal-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+.sf-modal-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+.sf-modal-sub {
+  font-size: 13.5px;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+.sf-modal-actions {
+  display: flex;
+  gap: 10px;
+}
+.btn-full {
+  flex: 1;
+}
+
+/* ── Toast ── */
+.sf-toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: #1a1a2e;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  transform: translateY(80px);
+  opacity: 0;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
+  z-index: 99999;
+  pointer-events: none;
+}
+.sf-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+:root {
+  --sidebar-w: 260px;
+  --brand: #16a34a;
+  --brand-dark: #15803d;
+  --brand-deeper: #14532d;
+  --brand-light: #bbf7d0;
+}
+body {
+  font-family: "DM Sans", sans-serif;
+  background: #f8fafc;
+}
+
+/* ── Sidebar ── */
+.sf-sidebar {
+  width: var(--sidebar-w);
+  min-height: 100vh;
+  background: linear-gradient(170deg, #16a34a 0%, #15803d 55%, #14532d 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 14px 20px;
+  z-index: 1000;
+  box-shadow: 4px 0 28px rgba(0, 0, 0, 0.14);
+}
+.sf-logo {
+  font-family: "Playfair Display", serif;
+  font-size: 21px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.sf-logo span {
+  color: #bbf7d0;
+}
+.sf-logo-sub {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: #86efac;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.sf-nav-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #86efac;
+  text-transform: uppercase;
+  padding: 0 8px;
+  margin: 14px 0 5px;
+}
+
+.sf-nav-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: #d1fae5;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s;
+  text-align: left;
+  margin-bottom: 2px;
+}
+.sf-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.13);
+  color: #fff;
+}
+.sf-nav-btn.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+.sf-nav-btn .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fca5a5;
+  margin-left: auto;
+  animation: blink 1.4s infinite;
+}
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.sf-user-card {
+  background: rgba(255, 255, 255, 0.13);
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.sf-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #bbf7d0;
+  color: #14532d;
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.sf-uname {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #fff;
+}
+.sf-urole {
+  font-size: 11.5px;
+  color: #86efac;
+}
+
+/* ── Main ── */
+.sf-main {
+  margin-left: var(--sidebar-w);
+  padding: 36px 36px 60px;
+  min-height: 100vh;
+}
+.sf-page-title {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+.sf-page-sub {
+  color: #64748b;
+  font-size: 14px;
+  margin: 4px 0 26px;
+}
+
+/* ── Stat cards ── */
+.stat-pink {
+  background: linear-gradient(135deg, #fce7f3, #fdf2f8);
+  border-color: #f9a8d4 !important;
+}
+.stat-orange {
+  background: linear-gradient(135deg, #ffedd5, #fff7ed);
+  border-color: #fdba74 !important;
+}
+.stat-yellow {
+  background: linear-gradient(135deg, #fef9c3, #fefce8);
+  border-color: #fde047 !important;
+}
+.stat-val {
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 6px;
+}
+.stat-note {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+/* ── Election overview ── */
+.el-ov-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 5px;
+}
+.el-ov-clas {
+  border-color: #c7d2fe !important;
+  background: linear-gradient(135deg, #fafbff, #fff) !important;
+}
+.el-ov-clas .el-ov-title {
+  color: #6366f1;
+}
+
+/* ── Candidate card ── */
+.candidate-card {
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px 14px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.18s;
+  position: relative;
+  background: #fff;
+}
+.candidate-card:hover {
+  border-color: var(--brand);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(22, 163, 74, 0.12);
+}
+.candidate-card.selected {
+  border-color: var(--brand);
+  background: #f0fdf4;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
+}
+.clas-card.selected {
+  border-color: #6366f1;
+  background: #eef2ff;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+.checkmark {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--brand);
+  color: #fff;
+  font-size: 12px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+.candidate-card.selected .checkmark {
+  display: flex;
+}
+.clas-card.selected .checkmark {
+  background: #6366f1;
+}
+.candidate-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #bbf7d0, #4ade80);
+  color: #14532d;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+}
+.clas-card .candidate-avatar {
+  background: linear-gradient(135deg, #c7d2fe, #818cf8);
+  color: #3730a3;
+}
+.candidate-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+.candidate-party {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+/* ── Position header ── */
+.pos-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  border-left: 4px solid var(--brand);
+  padding-left: 12px;
+  margin-bottom: 16px;
+}
+.clas-pos-header {
+  border-left-color: #6366f1 !important;
+}
+
+/* ── Vote submit ── */
+.vote-submit-wrap {
+  text-align: center;
+  padding: 32px 0 8px;
+}
+
+/* ── Feedback ── */
+.star {
+  font-size: 28px;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: opacity 0.15s;
+}
+.ftag {
+  border: 1.5px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.ftag.active {
+  background: #f0fdf4;
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+/* ── Profile avatar lg ── */
+.profile-av {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #bbf7d0, #4ade80);
+  color: #14532d;
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Custom modals (JS-controlled with .active) ── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay.active {
+  display: flex;
+}
+.sf-modal {
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 32px 28px;
+  max-width: 390px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  z-index: 10000;
+}
+.sf-modal-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+.sf-modal-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+.sf-modal-sub {
+  font-size: 13.5px;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+.sf-modal-actions {
+  display: flex;
+  gap: 10px;
+}
+.btn-full {
+  flex: 1;
+}
+
+/* ── Toast ── */
+.sf-toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: #1a1a2e;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  transform: translateY(80px);
+  opacity: 0;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
+  z-index: 99999;
+  pointer-events: none;
+}
+.sf-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@keyframes tabPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.06);
+  }
+}
+@keyframes pulseNotif {
+  0%,
+  100% {
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.08);
+  }
+}
+@keyframes tabPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.06);
+  }
+}
+@keyframes pulseNotif {
+  0%,
+  100% {
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.08);
+  }
+}
